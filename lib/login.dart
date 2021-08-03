@@ -40,6 +40,22 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      Hero(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image:
+                                    AssetImage('assets/images/splash_logo.png'),
+                                fit: BoxFit.contain),
+                          ),
+                          height: 100,
+                          width: 100,
+                        ),
+                        tag: 'splash_logo',
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
                       TextField(
                         decoration: InputDecoration(
                           hintText: "Enter your phone number",
@@ -92,15 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                         child: Text(
-                          'Send OTP',
-                          style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 18
-                          ),
+                          otpSent ? 'Verify OTP' : 'Send OTP',
+                          style: TextStyle(color: Colors.white70, fontSize: 18),
                         ),
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.black12)
-                        ),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black12)),
                       ),
                     ],
                   ),
