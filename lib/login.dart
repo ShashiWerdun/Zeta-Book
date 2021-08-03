@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zeta_book/fade_route.dart';
+import 'package:zeta_book/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: Color(0xff67d0f6),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     boxShadow: [
                       BoxShadow(
@@ -104,7 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            otpSent = true;
+                            if(!otpSent)
+                                otpSent = true;
+                            else
+                              Navigator.pushReplacement(context, FadeRoute(page: HomePage()));
                           });
                         },
                         child: Text(
