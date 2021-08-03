@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       body: PageView(
         pageSnapping: false,
         controller: pageController,
@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
         ],
         height: 65,
         index: _currentpage,
-        buttonBackgroundColor: Colors.blue,
-        backgroundColor: Colors.white,
+        buttonBackgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         onTap: (index){
           setState(() {
             _currentpage = index;
