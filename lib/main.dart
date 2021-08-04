@@ -4,9 +4,11 @@ import 'package:zeta_book/splash.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: SplashScreen(),
-    // theme: ThemeData(
-    // ),
+    theme: ThemeData(
+
+    ),
     // darkTheme: ThemeData(
     //
     // ),

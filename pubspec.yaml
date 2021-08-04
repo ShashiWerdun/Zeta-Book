@@ -69,5 +69,9 @@ flutter:
       fonts:
         - asset: assets/fonts/BlackOpsOne-Regular.ttf
 
+    - family: roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
