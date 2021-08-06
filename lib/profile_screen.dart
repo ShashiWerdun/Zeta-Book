@@ -148,8 +148,64 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Column(
-                    children: [],
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "My Business",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: Colors.black
+                                  ),
+                                ),
+                                Text(
+                                  "Category",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "Anonymous",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text(
+                                  "1234567890",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 20,),
+                        Text(
+                          "Business Address",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
