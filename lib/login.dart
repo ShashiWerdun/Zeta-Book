@@ -19,9 +19,12 @@ class _LoginPageState extends State<LoginPage> {
         title: Text('Login using phone'),
         centerTitle: true,
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
+              Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
@@ -106,10 +109,11 @@ class _LoginPageState extends State<LoginPage> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            if(!otpSent)
-                                otpSent = true;
+                            if (!otpSent)
+                              otpSent = true;
                             else
-                              Navigator.pushReplacement(context, FadeRoute(page: HomePage()));
+                              Navigator.pushReplacement(
+                                  context, FadeRoute(page: HomePage()));
                           });
                         },
                         child: Text(
@@ -126,6 +130,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ]),
+        ),
+      ),
     );
   }
 }
