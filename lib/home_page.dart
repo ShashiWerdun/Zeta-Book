@@ -1,6 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:zeta_book/profile_screen.dart';
+import 'package:zeta_book/theme_changer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,14 +18,32 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeChanger = Provider.of<ThemeChanger>(context);
+
     return Scaffold(
-      backgroundColor: Colors.blue,
+      appBar: AppBar(
+        title: Text(
+          'Zeta Book',
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
+        actions: [
+          Icon(Icons.light_mode_rounded),
+          Switch.adaptive(
+            value: themeChanger.darkMode,
+            onChanged: (value) {
+              final changer = Provider.of<ThemeChanger>(context, listen: false);
+              changer.toggleTheme(value);
+            },
+          ),
+          Icon(Icons.dark_mode_rounded),
+        ],
+      ),
       body: PageView(
         pageSnapping: false,
         controller: pageController,
         children: [
           Center(
-            child: Text("Home"),
+            child: Text('Home'),
           ),
           Center(
             child: Text("List"),
@@ -41,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        color: Colors.white,
+        color: (Theme.of(context).bottomNavigationBarTheme.selectedItemColor)!,
         key: _navigationkey,
         items: [
           Icon(
@@ -59,8 +79,10 @@ class _HomePageState extends State<HomePage> {
         ],
         height: 65,
         index: _currentpage,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.blue,
+        buttonBackgroundColor:
+            (Theme.of(context).bottomNavigationBarTheme.selectedItemColor)!,
+        backgroundColor:
+            (Theme.of(context).bottomNavigationBarTheme.backgroundColor)!,
         onTap: (index) {
           setState(() {
             _currentpage = index;
