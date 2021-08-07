@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zeta_book/home_page.dart';
 import 'package:zeta_book/theme_changer.dart';
-
-import 'home_page.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -38,6 +35,10 @@ void main() {
           ),
           colorScheme: ColorScheme.light(),
           textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
+          cardTheme: CardTheme(
+            color: Color(0xFFFFF0F0),
+            shadowColor: Colors.black,
+          ),
         ),
         darkTheme: ThemeData(
           brightness: Brightness.dark,
@@ -61,6 +62,10 @@ void main() {
           ),
           colorScheme: ColorScheme.dark(),
           textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
+          cardTheme: CardTheme(
+            color: Colors.black,
+            shadowColor: Colors.white,
+          ),
         ),
       );
     },
