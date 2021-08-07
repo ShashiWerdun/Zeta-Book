@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zeta_book/businesses_list.dart';
 import 'package:zeta_book/profile_screen.dart';
 import 'package:zeta_book/theme_changer.dart';
 
@@ -45,9 +46,7 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: Text('Home'),
           ),
-          Center(
-            child: Text("List"),
-          ),
+          BusinessesList(),
           ProfileScreen(),
         ],
         scrollDirection: Axis.horizontal,
