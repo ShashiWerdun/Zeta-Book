@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:zeta_book/login.dart';
+import 'package:zeta_book/screens/login.dart';
 
-import 'fade_route.dart';
+import '../utilities/fade_route.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

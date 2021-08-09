@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zeta_book/business_home.dart';
-import 'package:zeta_book/fade_route.dart';
+import 'package:zeta_book/screens/business_home.dart';
+import 'package:zeta_book/utilities/fade_route.dart';
 
 class BusinessesList extends StatefulWidget {
   const BusinessesList({Key? key}) : super(key: key);

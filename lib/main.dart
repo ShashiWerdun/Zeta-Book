@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zeta_book/home_page.dart';
-import 'package:zeta_book/theme_changer.dart';
+import 'package:zeta_book/screens/home_page.dart';
+import 'package:zeta_book/utilities/theme_changer.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -22,6 +22,10 @@ void main() {
             ),
           ),
           scaffoldBackgroundColor: Colors.blue,
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.lightBlueAccent,
+          ),
           appBarTheme: AppBarTheme(
             backgroundColor: Colors.blue,
             titleTextStyle: TextStyle(
@@ -49,6 +53,10 @@ void main() {
             ),
           ),
           scaffoldBackgroundColor: Color(0xFF282828),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            foregroundColor: Colors.white,
+            backgroundColor: Color(0xFF3C3C3C),
+          ),
           appBarTheme: AppBarTheme(
             backgroundColor: Color(0xFF1E1E1E),
             titleTextStyle: TextStyle(

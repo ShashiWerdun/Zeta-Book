@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zeta_book/fade_route.dart';
-import 'package:zeta_book/home_page.dart';
+import 'package:zeta_book/screens/home_page.dart';
+import 'package:zeta_book/utilities/fade_route.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

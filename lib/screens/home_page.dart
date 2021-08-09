@@ -1,10 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zeta_book/businesses_list.dart';
-import 'package:zeta_book/customer_list.dart';
-import 'package:zeta_book/profile_screen.dart';
-import 'package:zeta_book/theme_changer.dart';
+import 'package:zeta_book/screens/businesses_list.dart';
+import 'package:zeta_book/screens/dashboard.dart';
+import 'package:zeta_book/screens/profile_screen.dart';
+import 'package:zeta_book/utilities/theme_changer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         controller: pageController,
         children: [
-          CustomersScreen(),
+          DashBoard(),
           BusinessesList(),
           ProfileScreen(),
         ],

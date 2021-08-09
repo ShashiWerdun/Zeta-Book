@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:zeta_book/business_details.dart';
-import 'package:zeta_book/customer_list.dart';
+import 'package:zeta_book/screens/business_details.dart';
+import 'package:zeta_book/screens/customer_list.dart';
 
 class BusinessHomePage extends StatefulWidget {
   final int businessID;
