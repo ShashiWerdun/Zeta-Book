@@ -14,6 +14,7 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [

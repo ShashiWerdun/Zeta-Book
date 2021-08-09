@@ -11,13 +11,6 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomersScreen(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person_add_alt_1),
-        onPressed: () {},
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-    );
+    return CustomersScreen();
   }
 }
