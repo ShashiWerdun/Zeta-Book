@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class OtherRoute extends PageRouteBuilder {
+class SlideRoute extends PageRouteBuilder {
   final Widget page;
 
-  OtherRoute({required this.page})
+  SlideRoute({required this.page})
       : super(
           transitionDuration: Duration(milliseconds: 500),
           pageBuilder: (
