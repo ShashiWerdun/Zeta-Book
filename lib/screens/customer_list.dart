@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zeta_book/screens/transaction_list.dart';
 import 'package:zeta_book/utilities/fade_route.dart';
+import 'package:zeta_book/widgets/dividers.dart';
 
 class CustomersScreen extends StatefulWidget {
   const CustomersScreen({Key? key}) : super(key: key);
@@ -12,6 +13,9 @@ class CustomersScreen extends StatefulWidget {
 class _CustomersScreenState extends State<CustomersScreen> {
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final TextTheme textTheme = theme.textTheme;
+
     return Scaffold(
       body: Column(
         children: [
@@ -21,10 +25,7 @@ class _CustomersScreenState extends State<CustomersScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'List of Customers',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textTheme.headline1,
               ),
             ),
           ),
@@ -60,33 +61,30 @@ class _CustomersScreenState extends State<CustomersScreen> {
                                   children: [
                                     Text(
                                       'Customer Name',
-                                      style: TextStyle(fontSize: 25),
+                                      style: textTheme.subtitle1,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 8.0),
                                       child: Text(
                                         'Customer Phone',
-                                        style: TextStyle(fontSize: 15),
+                                        style: textTheme.bodyText1,
                                       ),
                                     )
                                   ],
                                 ),
                                 Column(
                                   children: [
-                                    Text('Amount Due:'),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          ((index % 2 == 1)
-                                                  ? 'pay \u{20B9}'
-                                                  : 'receive \u{20B9}') +
-                                              '$index',
-                                          style: TextStyle(fontSize: 18),
-                                        ),
-                                        // Icon(Icons.money_rounded),
-                                        // Text('due$index')
-                                      ],
+                                    Text(
+                                      'Amount Due:',
+                                      style: textTheme.bodyText2,
+                                    ),
+                                    Text(
+                                      ((index % 2 == 1)
+                                              ? 'pay \u{20B9}'
+                                              : 'receive \u{20B9}') +
+                                          '$index',
+                                      style: textTheme.subtitle2,
                                     )
                                   ],
                                 )
@@ -99,14 +97,8 @@ class _CustomersScreenState extends State<CustomersScreen> {
                   );
                 },
                 itemCount: 100,
-                separatorBuilder: (BuildContext context, int index) {
-                  return Divider(
-                    color: Colors.white,
-                    indent: 20,
-                    endIndent: 20,
-                    height: 10,
-                    thickness: 0.8,
-                  );
+                separatorBuilder: (context, index) {
+                  return ListDivider();
                 },
               ),
             ),

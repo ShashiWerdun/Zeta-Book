@@ -5,8 +5,10 @@ import 'package:zeta_book/utilities/slide_route.dart';
 class TransactionsScreen extends StatefulWidget {
   final int customerID;
 
-  const TransactionsScreen({Key? key, required this.customerID})
-      : super(key: key);
+  const TransactionsScreen({
+    Key? key,
+    required this.customerID,
+  }) : super(key: key);
 
   @override
   _TransactionsScreenState createState() =>
@@ -20,13 +22,16 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themeData = Theme.of(context);
-    double screenWidth = MediaQuery.of(context).size.width;
+    final ThemeData themeData = Theme.of(context);
+    final AppBarTheme appBarTheme = themeData.appBarTheme;
+    final TextTheme textTheme = themeData.textTheme;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Customer Name',
-          style: themeData.appBarTheme.titleTextStyle,
+          style: appBarTheme.titleTextStyle,
         ),
       ),
       body: Stack(
@@ -52,7 +57,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       Icon(
                         Icons.person,
                         size: 50,
-                        color: themeData.appBarTheme.actionsIconTheme!.color,
+                        color: appBarTheme.actionsIconTheme!.color,
                       ),
                       Text(
                         'Customer\ndetails',
@@ -63,7 +68,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       ),
                       Icon(
                         Icons.arrow_forward_ios,
-                        color: themeData.appBarTheme.actionsIconTheme!.color,
+                        color: appBarTheme.actionsIconTheme!.color,
                       )
                     ],
                   ),
@@ -75,7 +80,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 child: Align(
                   child: Text(
                     'List of transactions:',
-                    style: TextStyle(fontSize: 20),
+                    style: textTheme.headline1,
                   ),
                   alignment: Alignment.centerLeft,
                 ),
@@ -100,16 +105,14 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     Text(
                                       'transaction note $index',
                                       overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 22,
-                                      ),
+                                      style: textTheme.subtitle1,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 8.0),
                                       child: Text(
                                         DateTime(2019).toString(),
-                                        style: TextStyle(fontSize: 13),
+                                        style: textTheme.bodyText1,
                                       ),
                                     )
                                   ],
@@ -121,11 +124,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                   children: [
                                     Text(
                                       (index % 2 == 1) ? 'paid' : 'received',
-                                      style: TextStyle(fontSize: 10),
+                                      style: textTheme.bodyText2,
                                     ),
                                     Text(
                                       '\u{20B9}$index',
-                                      style: TextStyle(fontSize: 20),
+                                      style: textTheme.subtitle2,
                                     )
                                   ],
                                 ),
@@ -160,7 +163,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               'Paid',
-                              style: TextStyle(fontSize: 20),
+                              style: textTheme.subtitle2!
+                                  .copyWith(fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
@@ -182,7 +186,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               'Received',
-                              style: TextStyle(fontSize: 20),
+                              style: textTheme.subtitle2!
+                                  .copyWith(fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],

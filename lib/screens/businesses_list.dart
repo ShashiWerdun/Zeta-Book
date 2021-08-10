@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zeta_book/screens/business_home.dart';
 import 'package:zeta_book/utilities/fade_route.dart';
+import 'package:zeta_book/widgets/dividers.dart';
 
 class BusinessesList extends StatefulWidget {
   const BusinessesList({Key? key}) : super(key: key);
@@ -23,8 +24,8 @@ class _BusinessesListState extends State<BusinessesList> {
 
   @override
   Widget build(BuildContext context) {
-    final bool darkTheme = Theme.of(context).brightness == Brightness.dark;
-    final TextStyle textStyle = (Theme.of(context).textTheme.bodyText1)!;
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: Column(
         children: [
@@ -34,10 +35,7 @@ class _BusinessesListState extends State<BusinessesList> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'List of your Businesses',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textTheme.headline1,
               ),
             ),
           ),
@@ -77,19 +75,14 @@ class _BusinessesListState extends State<BusinessesList> {
                               children: [
                                 Text(
                                   title,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22,
-                                    color: textStyle.color,
-                                  ),
+                                  style: textTheme.subtitle1,
                                 ),
                                 SizedBox(
                                   height: 4,
                                 ),
                                 Text(
                                   businesses[title].toString(),
-                                  style: TextStyle(
-                                      fontSize: 18, color: textStyle.color),
+                                  style: textTheme.subtitle2,
                                 ),
                               ],
                             ),
@@ -98,14 +91,9 @@ class _BusinessesListState extends State<BusinessesList> {
                       ),
                     );
                   },
-                  separatorBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15.0, vertical: 0),
-                    child: Divider(
-                      color: darkTheme ? Colors.white : Colors.black,
-                      height: 10,
-                    ),
-                  ),
+                  separatorBuilder: (context, index) {
+                    return ListDivider();
+                  },
                 ),
               ),
             ),
