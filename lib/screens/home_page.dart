@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zeta_book/components/custom_app_bar.dart';
 import 'package:zeta_book/screens/businesses_list.dart';
 import 'package:zeta_book/screens/dashboard.dart';
 import 'package:zeta_book/screens/profile_screen.dart';
@@ -23,23 +24,7 @@ class _HomePageState extends State<HomePage> {
     final themeChanger = Provider.of<ThemeChanger>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Zeta Book',
-          style: Theme.of(context).appBarTheme.titleTextStyle,
-        ),
-        actions: [
-          Icon(Icons.light_mode_rounded),
-          Switch.adaptive(
-            value: themeChanger.darkMode,
-            onChanged: (value) {
-              final changer = Provider.of<ThemeChanger>(context, listen: false);
-              changer.toggleTheme(value);
-            },
-          ),
-          Icon(Icons.dark_mode_rounded),
-        ],
-      ),
+      appBar: buildAppBar(context, themeChanger),
       body: PageView(
         controller: pageController,
         children: [
@@ -89,4 +74,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+
 }
