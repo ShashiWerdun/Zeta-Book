@@ -1,3 +1,4 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:zeta_book/screens/transaction_list.dart';
 import 'package:zeta_book/utilities/fade_route.dart';
@@ -11,23 +12,51 @@ class CustomersScreen extends StatefulWidget {
 }
 
 class _CustomersScreenState extends State<CustomersScreen> {
+  TextEditingController textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final bool darkMode = theme.brightness == Brightness.dark;
     final TextTheme textTheme = theme.textTheme;
+    final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'List of Customers',
-                style: textTheme.headline1,
+          Stack(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    'List of Customers',
+                    style: textTheme.headline1,
+                  ),
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(right: 12.0),
+                child: SizedBox(
+                  height: 60,
+                  child: AnimSearchBar(
+                    width: size.width - 24,
+                    textController: textController,
+                    rtl: true,
+                    onSuffixTap: () {
+                      setState(() {
+                        textController.clear();
+                      });
+                    },
+                    color: darkMode ? Color(0xFF3C3C3C) : Colors.white,
+                    helpText: 'Search customer name',
+                    prefixIcon: Icon(Icons.person_search),
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: Padding(
@@ -81,8 +110,8 @@ class _CustomersScreenState extends State<CustomersScreen> {
                                     ),
                                     Text(
                                       ((index % 2 == 1)
-                                              ? 'pay \u{20B9}'
-                                              : 'receive \u{20B9}') +
+                                          ? 'pay \u{20B9}'
+                                          : 'receive \u{20B9}') +
                                           '$index',
                                       style: textTheme.subtitle2,
                                     )
