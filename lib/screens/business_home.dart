@@ -24,7 +24,6 @@ class _BusinessHomePageState extends State<BusinessHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('$businessID');
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,7 +35,9 @@ class _BusinessHomePageState extends State<BusinessHomePage> {
         controller: pageController,
         children: [
           CustomersScreen(),
-          BusinessDetailsPage(),
+          BusinessDetailsPage(
+            businessID: businessID,
+          ),
         ],
         onPageChanged: (index) {
           setState(() {

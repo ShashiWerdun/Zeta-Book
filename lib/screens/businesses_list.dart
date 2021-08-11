@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zeta_book/models/data.dart';
 import 'package:zeta_book/screens/business_home.dart';
 import 'package:zeta_book/utilities/fade_route.dart';
 import 'package:zeta_book/widgets/dividers.dart';
@@ -11,15 +12,6 @@ class BusinessesList extends StatefulWidget {
 }
 
 class _BusinessesListState extends State<BusinessesList> {
-  var businesses = {
-    'Business1': 'Category1',
-    'Business2': 'Category2',
-    'Business3': 'Category3',
-    'Business4': 'Category4',
-    'Business5': 'Category5',
-    'Business6': 'Category6',
-    'Business7': 'Category7',
-  };
   ScrollController listcontroller = ScrollController();
 
   @override
@@ -44,12 +36,11 @@ class _BusinessesListState extends State<BusinessesList> {
               padding: const EdgeInsets.only(bottom: 12.0),
               child: SafeArea(
                 child: ListView.separated(
-                  itemCount: businesses.length,
+                  itemCount: businessList.length,
                   physics: BouncingScrollPhysics(),
                   controller: listcontroller,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    String title = businesses.keys.toList()[index];
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextButton(
@@ -74,14 +65,14 @@ class _BusinessesListState extends State<BusinessesList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  title,
+                                  businessList[index].name,
                                   style: textTheme.subtitle1,
                                 ),
                                 SizedBox(
                                   height: 4,
                                 ),
                                 Text(
-                                  businesses[title].toString(),
+                                  businessList[index].category,
                                   style: textTheme.subtitle2,
                                 ),
                               ],

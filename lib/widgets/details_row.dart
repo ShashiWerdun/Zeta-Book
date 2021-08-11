@@ -36,23 +36,25 @@ class _DetailsRowState extends State<DetailsRow> {
     return Row(
       children: [
         Icon(this.icon),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                this.fieldName,
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                this.fieldValue,
-                style: TextStyle(fontSize: 20),
-              ),
-            ],
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  this.fieldName,
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  this.fieldValue,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
           ),
         ),
       ],

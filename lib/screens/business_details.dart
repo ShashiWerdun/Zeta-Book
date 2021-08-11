@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:zeta_book/models/data.dart';
 import 'package:zeta_book/widgets/buttons.dart';
 import 'package:zeta_book/widgets/details_row.dart';
 import 'package:zeta_book/widgets/dividers.dart';
 
 class BusinessDetailsPage extends StatefulWidget {
-  const BusinessDetailsPage({Key? key}) : super(key: key);
+  final int businessID;
+
+  const BusinessDetailsPage({Key? key, required int this.businessID})
+      : super(key: key);
 
   @override
-  _BusinessDetailsPageState createState() => _BusinessDetailsPageState();
+  _BusinessDetailsPageState createState() =>
+      _BusinessDetailsPageState(businessID: businessID);
 }
 
 class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
+  int businessID;
+
+  _BusinessDetailsPageState({required this.businessID});
+
   @override
   Widget build(BuildContext context) {
+    Business business = businessList[businessID];
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,17 +49,22 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               DetailsRow(
                   icon: Icons.business,
                   fieldName: 'Business Name',
-                  fieldValue: 'Chaitanya Startup'),
+                  fieldValue: business.name),
+              DetailsDivider(),
+              DetailsRow(
+                  icon: Icons.category_rounded,
+                  fieldName: 'Business Category',
+                  fieldValue: business.category),
               DetailsDivider(),
               DetailsRow(
                   icon: Icons.contact_phone_rounded,
                   fieldName: 'Registered Phone Number',
-                  fieldValue: '7680973625'),
+                  fieldValue: business.phone),
               DetailsDivider(),
               DetailsRow(
                   icon: Icons.my_location,
                   fieldName: 'Located at',
-                  fieldValue: 'Hyderabad, Telangana, India'),
+                  fieldValue: business.address),
               DetailsDivider(),
               DeleteButton(
                 toDelete: 'business',
