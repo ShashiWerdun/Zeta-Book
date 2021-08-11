@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zeta_book/screens/customer_details.dart';
+import 'package:zeta_book/screens/pdf_generation_screen.dart';
 import 'package:zeta_book/utilities/slide_route.dart';
 
 class TransactionsScreen extends StatefulWidget {
@@ -38,41 +40,81 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         children: [
           Column(
             children: [
-              TextButton(
-                style: ButtonStyle(
-                    fixedSize: MaterialStateProperty.all(
-                        Size.fromWidth(screenWidth / 2))),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    SlideRoute(
-                      page: CustomerDetailsScreen(),
+              Row(
+                children: [
+                  TextButton(
+                    style: ButtonStyle(
+                      fixedSize: MaterialStateProperty.all(
+                        Size.fromWidth(screenWidth / 2),
+                      ),
                     ),
-                  );
-                },
-                child: Card(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.person,
-                        size: 50,
-                        color: appBarTheme.actionsIconTheme!.color,
+                    onPressed: () {
+                      Navigator.push(
+                          context, SlideRoute(page: PdfGenerationScreen()));
+                    },
+                    child: Card(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.picture_as_pdf,
+                            size: 45,
+                            color: appBarTheme.actionsIconTheme!.color,
+                          ),
+                          Text(
+                            'Generate\npdf',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: appBarTheme.actionsIconTheme!.color,
+                          )
+                        ],
                       ),
-                      Text(
-                        'Customer\ndetails',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: appBarTheme.actionsIconTheme!.color,
-                      )
-                    ],
+                    ),
                   ),
-                ),
+                  TextButton(
+                    style: ButtonStyle(
+                      fixedSize: MaterialStateProperty.all(
+                        Size.fromWidth(screenWidth / 2),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        SlideRoute(
+                          page: CustomerDetailsScreen(),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.person,
+                            size: 50,
+                            color: appBarTheme.actionsIconTheme!.color,
+                          ),
+                          Text(
+                            'Customer\ndetails',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: appBarTheme.actionsIconTheme!.color,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding:

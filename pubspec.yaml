@@ -33,6 +33,16 @@ dependencies:
 
   #state management
   provider: ^4.3.2+3
+  path_provider: ^2.0.2
+  flutter_full_pdf_viewer: ^1.0.6
+  permission_handler: ^8.1.4+2
+
+  #For generating pdf for report generation.
+  pdf: ^3.4.2
+
+  #For picking date ranges
+  dropdown_date_picker: ^0.1.1+2
+
 
 dev_dependencies:
   flutter_test:
