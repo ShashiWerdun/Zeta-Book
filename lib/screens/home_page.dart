@@ -15,9 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentpage = 0;
   PageController pageController = PageController();
   GlobalKey<CurvedNavigationBarState> _navigationkey = GlobalKey();
+  bool setNavPage = true;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,11 @@ class _HomePageState extends State<HomePage> {
           ProfileScreen(),
         ],
         onPageChanged: (index) {
-          setState(() {
-            _currentpage = index;
+          if (setNavPage) {
             final CurvedNavigationBarState? navigationBarState =
                 _navigationkey.currentState;
-            navigationBarState?.setPage(_currentpage);
-          });
+            navigationBarState?.setPage(index);
+          }
         },
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -59,21 +58,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         height: 65,
-        index: _currentpage,
         buttonBackgroundColor:
             (Theme.of(context).bottomNavigationBarTheme.selectedItemColor)!,
         backgroundColor:
             (Theme.of(context).bottomNavigationBarTheme.backgroundColor)!,
-        onTap: (index) {
+        onTap: (index) async {
           setState(() {
-            _currentpage = index;
-            pageController.animateToPage(_currentpage,
-                duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
+            setNavPage = false;
+          });
+          await pageController.animateToPage(index,
+              duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+          setState(() {
+            setNavPage = true;
           });
         },
       ),
     );
   }
-
-
 }
